@@ -1,5 +1,5 @@
-use ta::indicators::TrueRange;
-use ta::{Close, High, Low, Next};
+use finlib_ta::indicators::TrueRange;
+use finlib_ta::{Close, High, Low, Next};
 
 // You can create your own data items.
 // You may want it for different purposes, e.g.:

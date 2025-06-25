@@ -1,13 +1,13 @@
 use bencher::{benchmark_group, benchmark_main, black_box, Bencher};
-use rand::Rng;
-use ta::indicators::{
+use finlib_ta::indicators::{
     AverageTrueRange, BollingerBands, ChandelierExit, CommodityChannelIndex, EfficiencyRatio,
-    ExponentialMovingAverage, FastStochastic, KeltnerChannel, Maximum, MeanAbsoluteDeviation,
-    Minimum, MoneyFlowIndex, MovingAverageConvergenceDivergence, OnBalanceVolume,
-    PercentagePriceOscillator, RateOfChange, RelativeStrengthIndex, SimpleMovingAverage,
-    SlowStochastic, StandardDeviation, TrueRange, WeightedMovingAverage, VolumeWeightedAveragePrice, HullMovingAverage
+    ExponentialMovingAverage, FastStochastic, HullMovingAverage, KeltnerChannel, Maximum,
+    MeanAbsoluteDeviation, Minimum, MoneyFlowIndex, MovingAverageConvergenceDivergence,
+    OnBalanceVolume, PercentagePriceOscillator, RateOfChange, RelativeStrengthIndex,
+    SimpleMovingAverage, SlowStochastic, StandardDeviation, TrueRange, VolumeWeightedAveragePrice, WeightedMovingAverage,
 };
-use ta::{DataItem, Next};
+use finlib_ta::{DataItem, Next};
+use rand::Rng;
 
 const ITEMS_COUNT: usize = 5_000;
 

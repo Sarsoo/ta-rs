@@ -1,5 +1,5 @@
 extern crate csv;
-extern crate ta;
+extern crate finlib_ta;
 
 // TODO: implement some integration tests
 

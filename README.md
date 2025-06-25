@@ -1,8 +1,8 @@
 # Technical Analysis for Rust (ta)
 
 [![Build Binaries](https://github.com/Sarsoo/ta-rs/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Sarsoo/ta-rs/actions/workflows/build.yml)
-[![Crates.io](https://img.shields.io/crates/v/ta)](https://crates.io/crates/ta)
-[![Docs.rs](https://docs.rs/ta/badge.svg)](https://docs.rs/finlib-ta)
+[![Crates.io](https://img.shields.io/crates/v/ta)](https://crates.io/crates/finlib_ta)
+[![Docs.rs](https://docs.rs/ta/badge.svg)](https://docs.rs/finlib_ta)
 [![License](https://img.shields.io/crates/l/ta)](https://raw.githubusercontent.com/sarsoo/ta-rs/master/LICENSE)
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua/)
