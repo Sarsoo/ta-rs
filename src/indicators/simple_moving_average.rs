@@ -2,10 +2,10 @@ use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::{Close, Next, Period, Reset};
-#[cfg(feature = "serde")]
-use serde::{Deserialize, Serialize};
 use alloc::boxed::Box;
 use alloc::vec;
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
 
 /// Simple moving average (SMA).
 ///
@@ -26,8 +26,8 @@ use alloc::vec;
 /// # Example
 ///
 /// ```
-/// use ta::indicators::SimpleMovingAverage;
-/// use ta::Next;
+/// use finlib_ta::indicators::SimpleMovingAverage;
+/// use finlib_ta::Next;
 ///
 /// let mut sma = SimpleMovingAverage::new(3).unwrap();
 /// assert_eq!(sma.next(10.0), 10.0);

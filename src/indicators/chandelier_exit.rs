@@ -27,8 +27,8 @@ use crate::{Close, High, Low, Next, Period, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::ChandelierExit;
-/// use ta::{Next, DataItem};
+/// use finlib_ta::indicators::ChandelierExit;
+/// use finlib_ta::{Next, DataItem};
 ///
 /// let value1 = DataItem::builder()
 /// .open(21.0).high(22.0).low(20.0).close(21.0).volume(1.0).build().unwrap();

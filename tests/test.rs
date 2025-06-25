@@ -7,8 +7,8 @@ extern crate finlib_ta;
 mod test {
     #[cfg(feature = "serde")]
     mod serde {
-        use ta::indicators::SimpleMovingAverage;
-        use ta::Next;
+        use finlib_ta::indicators::SimpleMovingAverage;
+        use finlib_ta::Next;
 
         // Simple smoke test that serde works (not sure if this is really necessary)
         #[test]

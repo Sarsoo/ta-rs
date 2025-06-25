@@ -29,11 +29,11 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// extern crate ta;
+/// extern crate finlib_ta;
 /// #[macro_use] extern crate assert_approx_eq;
 ///
-/// use ta::{Next, DataItem};
-/// use ta::indicators::AverageTrueRange;
+/// use finlib_ta::{Next, DataItem};
+/// use finlib_ta::indicators::AverageTrueRange;
 ///
 /// fn main() {
 ///     let data = vec![
@@ -116,7 +116,7 @@ impl fmt::Display for AverageTrueRange {
 
 #[cfg(test)]
 mod tests {
-use super::*;
+    use super::*;
     use crate::test_helper::*;
     use alloc::format;
 

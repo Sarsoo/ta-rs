@@ -2,14 +2,14 @@ use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::{Close, Next, Period, Reset};
-#[cfg(feature = "serde")]
-use serde::{Deserialize, Serialize};
 use alloc::boxed::Box;
 use alloc::vec;
-#[cfg(feature = "std")]
-use std::f64;
 #[cfg(not(feature = "std"))]
 use libm::sqrt;
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg(feature = "std")]
+use std::f64;
 
 /// Standard deviation (SD).
 ///
@@ -32,8 +32,8 @@ use libm::sqrt;
 /// # Example
 ///
 /// ```
-/// use ta::indicators::StandardDeviation;
-/// use ta::Next;
+/// use finlib_ta::indicators::StandardDeviation;
+/// use finlib_ta::Next;
 ///
 /// let mut sd = StandardDeviation::new(3).unwrap();
 /// assert_eq!(sd.next(10.0), 0.0);

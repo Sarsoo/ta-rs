@@ -25,8 +25,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 ///```
-/// use ta::indicators::{KeltnerChannel, KeltnerChannelOutput};
-/// use ta::Next;
+/// use finlib_ta::indicators::{KeltnerChannel, KeltnerChannelOutput};
+/// use finlib_ta::Next;
 ///
 /// let mut kc = KeltnerChannel::new(3, 2.0_f64).unwrap();
 ///

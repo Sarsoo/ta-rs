@@ -17,8 +17,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::HullMovingAverage;
-/// use ta::Next;
+/// use finlib_ta::indicators::HullMovingAverage;
+/// use finlib_ta::Next;
 ///
 /// let mut hma = HullMovingAverage::new(3).unwrap();
 /// assert_eq!(hma.next(10.0), 10.0);

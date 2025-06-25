@@ -54,8 +54,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::RelativeStrengthIndex;
-/// use ta::Next;
+/// use finlib_ta::indicators::RelativeStrengthIndex;
+/// use finlib_ta::Next;
 ///
 /// let mut rsi = RelativeStrengthIndex::new(3).unwrap();
 /// assert_eq!(rsi.next(10.0), 50.0);

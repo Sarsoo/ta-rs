@@ -1,6 +1,6 @@
-use core::fmt;
-use alloc::vec;
 use alloc::boxed::Box;
+use alloc::vec;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::{Low, Next, Period, Reset};
@@ -16,8 +16,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::Minimum;
-/// use ta::Next;
+/// use finlib_ta::indicators::Minimum;
+/// use finlib_ta::Next;
 ///
 /// let mut min = Minimum::new(3).unwrap();
 /// assert_eq!(min.next(10.0), 10.0);

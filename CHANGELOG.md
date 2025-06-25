@@ -1,7 +1,8 @@
-#### Unreleased
+#### v0.6.0 - 2025-06-25
 
-* Add Weighted Moving Average (WMA)
-
+* no_std support
+* VWAP
+* Hull Moving Average
 
 #### v0.5.0 - 2021-06-27
 
@@ -66,17 +67,17 @@
 
 * Initial release
 * Implemented indicators
-  * Trend
-    * Exponential Moving Average (EMA)
-    * Simple Moving Average (SMA)
-  * Oscillators
-    * Relative Strength Index (RSI)
-    * Fast Stochastic
-    * Slow Stochastic
-    * Moving Average Convergence Divergence (MACD)
-  * Other
-    * Minimum
-    * Maximum
-    * True Range
-    * Average True Range (AR)
-    * Rate of Change (ROC)
+    * Trend
+        * Exponential Moving Average (EMA)
+        * Simple Moving Average (SMA)
+    * Oscillators
+        * Relative Strength Index (RSI)
+        * Fast Stochastic
+        * Slow Stochastic
+        * Moving Average Convergence Divergence (MACD)
+    * Other
+        * Minimum
+        * Maximum
+        * True Range
+        * Average True Range (AR)
+        * Rate of Change (ROC)

@@ -1,6 +1,6 @@
-use core::fmt;
 use alloc::boxed::Box;
 use alloc::vec;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::{Close, High, Low, Next, Period, Reset, Volume};
@@ -37,8 +37,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::MoneyFlowIndex;
-/// use ta::{Next, DataItem};
+/// use finlib_ta::indicators::MoneyFlowIndex;
+/// use finlib_ta::{Next, DataItem};
 ///
 /// let mut mfi = MoneyFlowIndex::new(3).unwrap();
 /// let di = DataItem::builder()

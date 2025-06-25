@@ -1,6 +1,6 @@
-use core::fmt;
 use alloc::boxed::Box;
 use alloc::vec;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::traits::{Close, Next, Period, Reset};
@@ -26,8 +26,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::RateOfChange;
-/// use ta::Next;
+/// use finlib_ta::indicators::RateOfChange;
+/// use finlib_ta::Next;
 ///
 /// let mut roc = RateOfChange::new(2).unwrap();
 /// assert_eq!(roc.next(10.0), 0.0);            //  0
@@ -128,7 +128,7 @@ impl Reset for RateOfChange {
 
 #[cfg(test)]
 mod tests {
-use super::*;
+    use super::*;
     use crate::test_helper::*;
     use alloc::format;
 

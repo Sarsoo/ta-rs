@@ -1,6 +1,6 @@
-use core::fmt;
 use alloc::boxed::Box;
 use alloc::vec;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::{Close, Next, Period, Reset};
@@ -25,8 +25,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::WeightedMovingAverage;
-/// use ta::Next;
+/// use finlib_ta::indicators::WeightedMovingAverage;
+/// use finlib_ta::Next;
 ///
 /// let mut wma = WeightedMovingAverage::new(3).unwrap();
 /// assert_eq!(wma.next(10.0), 10.0);

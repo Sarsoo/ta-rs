@@ -1,6 +1,6 @@
-use core::fmt;
 use alloc::boxed::Box;
 use alloc::vec;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::traits::{Close, Next, Period, Reset};
@@ -19,8 +19,8 @@ use serde::{Deserialize, Serialize};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::EfficiencyRatio;
-/// use ta::Next;
+/// use finlib_ta::indicators::EfficiencyRatio;
+/// use finlib_ta::Next;
 ///
 /// let mut er = EfficiencyRatio::new(4).unwrap();
 /// assert_eq!(er.next(10.0), 1.0);

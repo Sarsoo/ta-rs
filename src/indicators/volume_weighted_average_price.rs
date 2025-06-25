@@ -11,11 +11,11 @@ use std::f64;
 /// # Example
 ///
 /// ```
-/// extern crate ta;
+/// extern crate finlib_ta;
 /// #[macro_use] extern crate assert_approx_eq;
 ///
-/// use ta::{Next, DataItem};
-/// use ta::indicators::VolumeWeightedAveragePrice;
+/// use finlib_ta::{Next, DataItem};
+/// use finlib_ta::indicators::VolumeWeightedAveragePrice;
 ///
 ///
 /// fn main() {
@@ -57,12 +57,12 @@ use std::f64;
 /// # Example StdDev
 ///
 /// ```
-/// extern crate ta;
+/// extern crate finlib_ta;
 /// #[macro_use] extern crate assert_approx_eq;
 ///
-/// use ta::{Next, DataItem};
-/// use ta::indicators::VolumeWeightedAveragePrice;
-/// use ta::indicators::VolumeWeightedAveragePriceBands;
+/// use finlib_ta::{Next, DataItem};
+/// use finlib_ta::indicators::VolumeWeightedAveragePrice;
+/// use finlib_ta::indicators::VolumeWeightedAveragePriceBands;
 ///
 ///
 /// fn main() {
