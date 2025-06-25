@@ -54,10 +54,10 @@ jobs:
 
       - name: Install check stable and nightly
         run: |
-          cargo check --target thumbv7m-none-eabi --no-default-features --features global_alloc
+          cargo check --target thumbv7m-none-eabi --no-default-features
           rustup override set nightly
           rustup target add thumbv7m-none-eabi
-          cargo check --target thumbv7m-none-eabi --no-default-features --features global_alloc
+          cargo check --target thumbv7m-none-eabi --no-default-features
 
   #          sudo apt-get update && sudo apt-get install qemu qemu-system-arm
 
