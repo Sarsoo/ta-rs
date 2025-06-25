@@ -1,9 +1,9 @@
 # Technical Analysis for Rust (ta)
 
-[![Build Status](https://img.shields.io/travis/greyblake/ta-rs)](https://travis-ci.org/greyblake/ta-rs)
+[![Build Binaries](https://github.com/Sarsoo/ta-rs/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Sarsoo/ta-rs/actions/workflows/build.yml)
 [![Crates.io](https://img.shields.io/crates/v/ta)](https://crates.io/crates/ta)
-[![Docs.rs](https://docs.rs/ta/badge.svg)](https://docs.rs/ta)
-[![License](https://img.shields.io/crates/l/ta)](https://raw.githubusercontent.com/greyblake/ta-rs/master/LICENSE)
+[![Docs.rs](https://docs.rs/ta/badge.svg)](https://docs.rs/finlib-ta)
+[![License](https://img.shields.io/crates/l/ta)](https://raw.githubusercontent.com/sarsoo/ta-rs/master/LICENSE)
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua/)
 
@@ -20,9 +20,10 @@ Technical analysis library for Rust.
 ## Getting started
 
 Add to you `Cargo.toml`:
+
 ```
 [dependencies]
-ta = "0.4.0"
+finlib-ta = "0.6.0"
 ```
 
 Example:
@@ -70,37 +71,37 @@ Indicators typically implement the following traits:
 So far there are the following indicators available.
 
 * Trend
-  * Exponential Moving Average (EMA)
-  * Hull Moving Average (HMA)
-  * Weighted Moving Average (WMA)
-  * Simple Moving Average (SMA)
+    * Exponential Moving Average (EMA)
+    * Hull Moving Average (HMA)
+    * Weighted Moving Average (WMA)
+    * Simple Moving Average (SMA)
 * Oscillators
-  * Relative Strength Index (RSI)
-  * Fast Stochastic
-  * Slow Stochastic
-  * Moving Average Convergence Divergence (MACD)
-  * Percentage Price Oscillator (PPO)
-  * Commodity Channel Index (CCI)
-  * Money Flow Index (MFI)
+    * Relative Strength Index (RSI)
+    * Fast Stochastic
+    * Slow Stochastic
+    * Moving Average Convergence Divergence (MACD)
+    * Percentage Price Oscillator (PPO)
+    * Commodity Channel Index (CCI)
+    * Money Flow Index (MFI)
 * Other
-  * Minimum
-  * Maximum
-  * True Range
-  * Standard Deviation (SD)
-  * Mean Absolute Deviation (MAD)
-  * Average True Range (AR)
-  * Efficiency Ratio (ER)
-  * Bollinger Bands (BB)
-  * Chandelier Exit (CE)
-  * Keltner Channel (KC)
-  * Rate of Change (ROC)
-  * On Balance Volume (OBV)
-
+    * Minimum
+    * Maximum
+    * True Range
+    * Standard Deviation (SD)
+    * Mean Absolute Deviation (MAD)
+    * Average True Range (AR)
+    * Efficiency Ratio (ER)
+    * Bollinger Bands (BB)
+    * Chandelier Exit (CE)
+    * Keltner Channel (KC)
+    * Rate of Change (ROC)
+    * On Balance Volume (OBV)
 
 ## Features
 
 * `serde` - allows to serialize and deserialize indicators. NOTE: the backward compatibility of serialized
-data with the future versions of ta is not guaranteed because internal implementation of the indicators is a subject to change.
+  data with the future versions of ta is not guaranteed because internal implementation of the indicators is a subject
+  to change.
 
 ## Running benchmarks
 
@@ -114,11 +115,9 @@ You can support the project by donating [NEAR tokens](https://near.org).
 
 Our NEAR wallet address is `ta-rs.near`
 
-
 ## License
 
-[MIT](https://github.com/greyblake/ta-rs/blob/master/LICENSE) © [Sergey Potapov](http://greyblake.com/)
-
+[MIT](https://github.com/sarsoo/ta-rs/blob/master/LICENSE) © [Sergey Potapov](http://greyblake.com/)
 
 ## Contributors
 

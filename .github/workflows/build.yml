@@ -1,0 +1,141 @@
+name: Build Binaries
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Cargo Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+
+      - name: Cargo Test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+
+  buildEmbedded:
+    name: Build Embedded
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: thumbv7m-none-eabi
+
+      - name: Install check stable and nightly
+        run: |
+          cargo check --target thumbv7m-none-eabi --no-default-features --features global_alloc
+          rustup override set nightly
+          rustup target add thumbv7m-none-eabi
+          cargo check --target thumbv7m-none-eabi --no-default-features --features global_alloc
+
+  #          sudo apt-get update && sudo apt-get install qemu qemu-system-arm
+
+  #      - name: Test Embedded (in nightly)
+  #        timeout-minutes: 1
+  #        run: |
+  #          cd tests/embedded
+  #          cargo run
+
+  doc:
+    name: Build Documentation
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: [ build, buildEmbedded ] # for ignoring bad builds
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Build Docs
+        run: cargo doc --no-deps --document-private-items -F serde --workspace
+
+      - name: Add redirect
+        run: echo '<meta http-equiv="refresh" content="0;url=finlib_ta/index.html">' > target/doc/index.html
+
+      - name: Remove lock file
+        run: rm target/doc/.lock
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './target/doc'
+
+  deploy:
+    name: Deploy Documentation
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: doc
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  publishRustLib:
+    runs-on: ubuntu-latest
+    name: Publish Rust Library
+    needs: [ build ] # for ignoring bad builds
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Add Crates.io Credentials
+        run: |
+          cat <<EOF > ~/.cargo/credentials.toml
+          [registry]
+          token = "${{ secrets.CRATES_TOKEN }}"
+          EOF
+
+      - name: Cargo Publish
+        uses: actions-rs/cargo@v1
+        with:
+          command: publish

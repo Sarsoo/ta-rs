@@ -1,24 +1,21 @@
 [package]
-name = "ta"
-version = "0.5.0"
+name = "finlib-ta"
+version = "0.6.0"
 authors = ["Sergey Potapov <blake131313@gmail.com>"]
 edition = "2021"
 description = "Technical analysis library. Implements number of indicators: EMA, SMA, RSI, MACD, Stochastic, etc."
 keywords = ["technical-analysis", "financial", "ema", "indicators", "trading"]
 license = "MIT"
-repository = "https://github.com/greyblake/ta-rs"
-homepage = "https://github.com/greyblake/ta-rs"
-documentation = "https://docs.rs/ta"
+repository = "https://github.com/sarsoo/ta-rs"
+homepage = "https://github.com/sarsoo/ta-rs"
+documentation = "https://docs.rs/finlib-ta"
 readme = "README.md"
-categories = ["science", "algorithms"]
+categories = ["no-std", "finance", "science", "algorithms"]
 include = [
     "src/**/*",
     "Cargo.toml",
     "README.md"
 ]
-
-[badges]
-travis-ci = { repository = "greyblake/ta-rs", branch = "master" }
 
 [dependencies]
 serde = { version = "1.0", default-features = false, features = ["derive"], optional = true }
