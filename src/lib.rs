@@ -28,6 +28,7 @@
 //!
 //! * Trend
 //!   * [Exponential Moving Average (EMA)](crate::indicators::ExponentialMovingAverage)
+//!   * [Hull Moving Average (HMA)](crate::indicators::HullMovingAverage)
 //!   * [Simple Moving Average (SMA)](crate::indicators::SimpleMovingAverage)
 //!   * [Weighted Moving Average (WMA)](crate::indicators::WeightedMovingAverage)
 //!   * [Volume Weighted Average Price (VWAP)](crate::indicators::VolumeWeightedAveragePrice)
