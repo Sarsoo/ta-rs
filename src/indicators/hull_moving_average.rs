@@ -1,8 +1,12 @@
-use std::fmt;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::indicators::WeightedMovingAverage;
 use crate::{Close, Next, Period, Reset};
+#[cfg(feature = "std")]
+use core::f64;
+#[cfg(not(feature = "std"))]
+use libm::sqrt;
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 
@@ -42,12 +46,25 @@ impl HullMovingAverage {
     pub fn new(period: usize) -> Result<Self> {
         match period {
             0 | 1 => Err(TaError::InvalidParameter),
-            _ => Ok(Self {
-                period,
-                short_wma: WeightedMovingAverage::new(period / 2)?,
-                regular_wma: WeightedMovingAverage::new(period)?,
-                wrapping_wma: WeightedMovingAverage::new((period as f64).sqrt() as usize)?,
-            }),
+            _ => {
+                Ok(Self {
+                    period,
+                    short_wma: WeightedMovingAverage::new(period / 2)?,
+                    regular_wma: WeightedMovingAverage::new(period)?,
+                    wrapping_wma: WeightedMovingAverage::new(Self::sqrt(period))?,
+                })
+            }
+        }
+    }
+
+    fn sqrt(period: usize) -> usize {
+        #[cfg(feature = "std")]
+        {
+            return (period as f64).sqrt() as usize;
+        }
+        #[cfg(not(feature = "std"))]
+        {
+            return sqrt(period as f64) as usize;
         }
     }
 }
@@ -101,6 +118,7 @@ impl fmt::Display for HullMovingAverage {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
 
     test_indicator!(HullMovingAverage);
 

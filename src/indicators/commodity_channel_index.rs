@@ -1,4 +1,4 @@
-use std::fmt;
+use core::fmt;
 
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
@@ -89,6 +89,7 @@ impl fmt::Display for CommodityChannelIndex {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
 
     #[test]
     fn test_new() {

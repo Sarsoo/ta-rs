@@ -54,6 +54,13 @@
 //!   * [Rate of Change (ROC)](indicators/struct.RateOfChange.html)
 //!   * [On Balance Volume (OBV)](indicators/struct.OnBalanceVolume.html)
 //!
+
+#![cfg_attr(not(feature = "std"), no_std)]
+
+extern crate alloc;
+#[cfg(feature = "std")]
+extern crate std;
+
 #[cfg(test)]
 #[macro_use]
 mod test_helper;

@@ -1,7 +1,7 @@
-use std::error::Error;
-use std::fmt::{Display, Formatter};
+use core::error::Error;
+use core::fmt::{Display, Formatter};
 
-pub type Result<T> = std::result::Result<T, TaError>;
+pub type Result<T> = core::result::Result<T, TaError>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TaError {
@@ -11,7 +11,7 @@ pub enum TaError {
 }
 
 impl Display for TaError {
-    fn fmt(&self, f: &mut Formatter) -> std::fmt::Result {
+    fn fmt(&self, f: &mut Formatter) -> core::fmt::Result {
         match *self {
             TaError::InvalidParameter => write!(f, "invalid parameter"),
             TaError::DataItemIncomplete => write!(f, "data item is incomplete"),

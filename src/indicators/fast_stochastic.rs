@@ -1,4 +1,4 @@
-use std::fmt;
+use core::fmt;
 
 use crate::errors::Result;
 use crate::indicators::{Maximum, Minimum};
@@ -121,6 +121,8 @@ impl fmt::Display for FastStochastic {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
+    use alloc::vec;
 
     test_indicator!(FastStochastic);
 

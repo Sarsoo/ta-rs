@@ -1,5 +1,6 @@
 use crate::errors::*;
 use crate::traits::{Close, High, Low, Open, Volume};
+use alloc::vec;
 
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};

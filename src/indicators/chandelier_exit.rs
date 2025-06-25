@@ -1,4 +1,4 @@
-use std::fmt;
+use core::fmt;
 
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
@@ -133,6 +133,7 @@ mod tests {
     use crate::test_helper::*;
 
     use super::*;
+    use alloc::format;
 
     type Ce = ChandelierExit;
 

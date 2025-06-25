@@ -1,6 +1,10 @@
-use std::fmt;
-
+use core::fmt;
+use alloc::vec;
 use crate::{High, Low, Next, Reset, Volume, Close};
+#[cfg(feature = "std")]
+use std::f64;
+#[cfg(not(feature = "std"))]
+use libm::sqrt;
 
 /// # Example
 ///
@@ -150,7 +154,15 @@ impl<T: High + Low + Close + Volume> Next<&T> for VolumeWeightedAveragePrice {
         self.cumulative_v2 = (d.volume() * typical_price * typical_price) + self.cumulative_v2;
 
         let val = (self.cumulative_v2 / self.cumulative_volume) - self.vwap * self.vwap;
-        self.std_dev = val.max(0.0).sqrt();
+
+        #[cfg(feature = "std")]
+        {
+            self.std_dev = val.max(0.0).sqrt();
+        }
+        #[cfg(not(feature = "std"))]
+        {
+            self.std_dev = sqrt(val.max(0.0));
+        }
 
         self.vwap
     }
@@ -184,6 +196,7 @@ mod tests {
     use assert_approx_eq::assert_approx_eq;
     use VolumeWeightedAveragePriceBands::*;
     use crate::DataItem;
+    use alloc::format;
 
     fn generate_bar(record: (f64, f64, f64, f64, f64)) -> DataItem {
         let (open, high, low, close, volume): (f64, f64, f64, f64, f64) = record;

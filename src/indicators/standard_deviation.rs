@@ -1,9 +1,15 @@
-use std::fmt;
+use core::fmt;
 
 use crate::errors::{Result, TaError};
 use crate::{Close, Next, Period, Reset};
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
+use alloc::boxed::Box;
+use alloc::vec;
+#[cfg(feature = "std")]
+use std::f64;
+#[cfg(not(feature = "std"))]
+use libm::sqrt;
 
 /// Standard deviation (SD).
 ///
@@ -106,7 +112,10 @@ impl Next<f64> for StandardDeviation {
             self.m2 = 0.0;
         }
 
-        (self.m2 / self.count as f64).sqrt()
+        #[cfg(feature = "std")]
+        return f64::sqrt(self.m2 / self.count as f64);
+        #[cfg(not(feature = "std"))]
+        return sqrt(self.m2 / self.count as f64);
     }
 }
 
@@ -146,6 +155,7 @@ impl fmt::Display for StandardDeviation {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
 
     test_indicator!(StandardDeviation);
 

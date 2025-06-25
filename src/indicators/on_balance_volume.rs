@@ -1,4 +1,4 @@
-use std::fmt;
+use core::fmt;
 
 use crate::{Close, Next, Reset, Volume};
 #[cfg(feature = "serde")]
@@ -112,6 +112,7 @@ impl Reset for OnBalanceVolume {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
 
     #[test]
     fn test_next_bar() {

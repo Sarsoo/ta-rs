@@ -1,4 +1,6 @@
-use std::fmt;
+use core::fmt;
+use alloc::boxed::Box;
+use alloc::vec;
 
 use crate::errors::{Result, TaError};
 use crate::{High, Next, Period, Reset};
@@ -121,6 +123,7 @@ impl fmt::Display for Maximum {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
 
     test_indicator!(Maximum);
 

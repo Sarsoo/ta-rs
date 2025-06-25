@@ -1,4 +1,4 @@
-use std::fmt;
+use core::fmt;
 
 use crate::errors::Result;
 use crate::indicators::StandardDeviation as Sd;
@@ -126,6 +126,7 @@ impl fmt::Display for BollingerBands {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
 
     test_indicator!(BollingerBands);
 

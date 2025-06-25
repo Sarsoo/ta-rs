@@ -1,4 +1,4 @@
-use std::fmt;
+use core::fmt;
 
 use crate::errors::Result;
 use crate::indicators::{ExponentialMovingAverage, FastStochastic};
@@ -88,6 +88,8 @@ impl fmt::Display for SlowStochastic {
 mod tests {
     use super::*;
     use crate::test_helper::*;
+    use alloc::format;
+    use alloc::vec;
 
     test_indicator!(SlowStochastic);
 
